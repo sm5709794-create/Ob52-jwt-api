@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: jwt-bot
+    env: python
+    region: ohio  # या ap-south-1 (Mumbai)
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: TELEGRAM_BOT_TOKEN
+        value: "8288784410:AAFQBLpsOLh8NQRae6oZEHR31SMo5dOGEpo"
+      - key: TELEGRAM_CHAT_ID
+        value: "7413538953"
+      - key: PYTHON_VERSION
+        value: "3.9.18"
